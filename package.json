@@ -1,0 +1,19 @@
+{
+  "name": "wdi5-workshop",
+  "version": "7.7.22",
+  "description": "wdi5 workshop",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "UI5 community",
+  "license": "ISC",
+   "workspaces": [
+    "examples/fe-app",
+    "examples/ui5-js-app",
+    "examples/ui5-ts-app"
+  ],
+  "engines": {
+    "node": ">=16",
+    "npm": ">=7"
+  }
+}
