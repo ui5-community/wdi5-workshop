@@ -7,10 +7,10 @@
   },
   "author": "UI5 community",
   "license": "ISC",
-   "workspaces": [
-    "examples/fe-app",
-    "examples/ui5-js-app",
-    "examples/ui5-ts-app"
+  "workspaces": [
+    "fe-app",
+    "ui5-js-app",
+    "ui5-ts-app"
   ],
   "engines": {
     "node": ">=16",
