@@ -10,3 +10,11 @@ server:
       configuration:
         baseUri: "https://services.odata.org/V2"
         strictSSL: false
+framework:
+  name: OpenUI5
+  version: "1.103.0"
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ui.layout
+    - name: themelib_sap_horizon
