@@ -5,7 +5,7 @@
   "author": "nosotros-todos@ui5-community.org",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "npm-run-all --parallel watch:ts start:ui5",
+    "serve": "npm-run-all --parallel watch:ts start:ui5",
     "watch:ts": "babel src --out-dir webapp --source-maps true --extensions \".ts,.js\" --copy-files --watch",
     "start:ui5": "ui5 serve --port 8080",
     "wdi5": "cd test && wdio run wdio.conf.ts"
