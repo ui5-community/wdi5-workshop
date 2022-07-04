@@ -21,3 +21,13 @@ $> npm i
 ```
 
 ...will install all dependencies and modules for all three applications in one Go.
+
+## run
+
+It's the same approach for all three apps:
+
+- cd `$app`
+- Terminal 1: `npm run serve`  
+  starts the ui5 tooling serving the app
+- Terminal 2: `npm run wdi5`
+  starts the `wdi5`-tests for the app
