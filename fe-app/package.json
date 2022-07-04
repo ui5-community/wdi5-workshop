@@ -19,7 +19,7 @@
   },
   "scripts": {
     "postinstall": "cd app/incidents && npm i",
-    "wdi5": "wdio run wdio.conf.js --headless",
+    "wdi5": "wdio run wdio.conf.js",
     "serve": "cd app/incidents && ui5 serve --port 8088"
   },
   "sapux": [
