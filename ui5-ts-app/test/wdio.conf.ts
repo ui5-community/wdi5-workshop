@@ -10,7 +10,7 @@ export const config: wdi5Config = {
 
     services: ["chromedriver", "ui5"],
 
-    specs: ["./test/e2e/**/*.test.ts"],
+    specs: ["./**/*.test.ts"],
 
     maxInstances: 10,
     capabilities: [
