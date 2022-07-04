@@ -17,8 +17,10 @@ It consits of three types of apps:
 - TypeScript-based UI5 app, incl UI5 Webcomponents
 - Fiori Elements app
 
+In the `/` of the project, doing an...
+
 ```shell
-$> npm i
+$> npm install
 ```
 
 ...will install all dependencies and modules for all three applications in one Go.
