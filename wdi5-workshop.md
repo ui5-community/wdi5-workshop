@@ -25,11 +25,14 @@ focus: DevX, CI, on-boarding
 - install & config `wdi5`
   - `npm init wdi5` || `npx wdio config`
   - docker image
+  - ui5 tooling, mocha, spec reporter
+
 - a first test
   - OPA5-compatible "matcher"
   - test recorder `wdi5` dialect
   - UI5 API for controls
   - fluent async api
+  - $shorthand shotcuts `.getItems(true)`
 - "your friendly neighborhood UI5 e2e test tool"
   - code completion
   - headless/`--headless`
