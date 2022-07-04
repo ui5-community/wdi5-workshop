@@ -7,11 +7,19 @@
   "author": "j&s-soft GmbH",
   "main": "webapp/index.html",
   "scripts": {
-    "serve": "ui5 serve"
+    "serve": "ui5 serve",
+    "wdi5": "wdio run wdio.conf.js"
   },
   "devDependencies": {
     "@ui5/cli": "^2.14.9",
-    "ui5-middleware-simpleproxy": "^0.8.4"
+    "@wdio/cli": "^7.20.2",
+    "@wdio/local-runner": "^7.20.2",
+    "@wdio/mocha-framework": "^7.20.0",
+    "@wdio/spec-reporter": "^7.20.0",
+    "chromedriver": "^102.0.0",
+    "ui5-middleware-simpleproxy": "^0.8.4",
+    "wdio-chromedriver-service": "^7.3.2",
+    "wdio-ui5-service": "^0.9.2"
   },
   "ui5": {
     "dependencies": [
