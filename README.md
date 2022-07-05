@@ -4,7 +4,17 @@
 <img src="https://github.com/js-soft/wdi5/raw/main/docs/img/wdi5-logo-small.png" alt="wdi5 logo!">
 </center>
 
-Here are the source for the `wdi5` workshop at UI5con 2022.
+Here are the sources for the `wdi5` workshop at UI5con 2022.
+
+## prerequisites
+
+please have this installed on your 'puter:
+
+- Node >= 16 &rarr; <https://nodejs.org/en/>
+- `git` &rarr; <https://git-scm.com>
+- Docker (desktop) &rarr; <https://www.docker.com/products/docker-desktop/>
+- Google Chrome &rarr; <https://www.google.com/intl/en_us/chrome/>
+- an IDE/Editor (we'll demo with VS Code)
 
 ## prep
 
