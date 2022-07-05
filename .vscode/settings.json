@@ -1,4 +1,5 @@
 {
     "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false,
-    "SAP HANA Database Explorer.enableSapWebAnalytics": false
+    "SAP HANA Database Explorer.enableSapWebAnalytics": false,
+    "workbench.colorTheme": "Darcula - WebStorm Edition"
 }
