@@ -34,7 +34,7 @@ describe("FE basics", () => {
         })
     })
 
-    it("should see an object page", async () => {
+    it("should see an object page and change field", async () => {
         await FioriElementsFacade.execute((Given, When, Then) => {
             Then.onTheDetailPage.onHeader().iCheckEdit().and.iCheckTitle("Password Reset")
             When.onTheDetailPage.onHeader().iExecuteEdit()
@@ -47,7 +47,7 @@ describe("FE basics", () => {
         })
     })
 
-    it("should see an object page", async () => {
+    it("should see the list report again and the changed field", async () => {
         await FioriElementsFacade.execute((Given, When, Then) => {
             When.onTheShell.iNavigateBack()
             Then.onTheMainPage.iSeeThisPage()
