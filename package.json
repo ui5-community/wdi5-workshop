@@ -10,7 +10,8 @@
   "workspaces": [
     "fe-app",
     "ui5-js-app",
-    "ui5-ts-app"
+    "ui5-ts-app",
+    "ci-docker"
   ],
   "engines": {
     "node": ">=16",
