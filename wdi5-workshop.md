@@ -4,6 +4,13 @@
 
 focus: DevX, CI, on-boarding
 
+1. DevX w/ `wdi5`
+2. Breakout Sessions
+    - js-app (@The_dominiK) -> page objects, test structuring
+    - ts-app (@vobu) -> one abstraction layer more
+    - fe-app (@scoen) -> FE OData v4 test library
+3. walk through `wdi5` codebase
+
 ---
 
 ## wdi5
