@@ -10,6 +10,9 @@ exports.config = {
             browserName: "chrome",
             "goog:chromeOptions": {
                 args: [
+                    /* This skips the --headless startup option if the envvar
+                     * HEADFUL is defined. In its place, --dummy is used which
+                     * is ignored by chrome. */
                     process.env.HEADFUL === undefined ? "--headless" : "--dummy",
                     "--no-sandbox",
                     "--disable-gpu",
