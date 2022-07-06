@@ -1,7 +1,6 @@
+# I. Working with Docker
 
-# Working with Docker
-
-## Easy Peasy wdi5 Docker Image:
+## I.1 Easy Peasy wdi5 Docker Image:
 
 - TODO: Fix Docker Image
 - TODO: Check whether we can package.json aswell
@@ -9,27 +8,27 @@
 The wdi5 Docker image uses the most up-to-date Google Chrome.
 
 ```
- download and build the docker image
+# download and build the docker image
 docker pull docker pull ghcr.io/js-soft/wdi5:0.9.9-node17
 
- map your files into /app and run the container
+# map your files into /app and run the container
 docker run -v "$(realpath ui5.yaml)":/app/ui5.yaml \
     -v "$(realpath wdio.conf.js)":/app/wdio.conf.js \
     -v "$(realpath webapp)":/app/webapp \
     ghcr.io/js-soft/wdi5:0.9.9-node17
 ```
 
-## Using a Custom Dockerfile
+## I.2 Using a Custom Dockerfile
 
 See *Dockerfile* for a basic template.
 
 ```
-build and run
+# build and run
 docker build -t wdi5-ci-docker .
 docker run wdi5-ci-docker
 ```
 
-### Notes on Docker Base Images for Browser Testing
+### I.2.1 Notes on Docker Base Images for Browser Testing
 
 - Alpine is unsuited to run Chrome or Chromium (and the respective webdrivers)
   as the browsers come build for glibc, whereas Alpine uses musl. The
@@ -44,22 +43,16 @@ docker run wdi5-ci-docker
 For wdi5 we use an Ubuntu base image and download Google Chrome manually. See
 the *Dockerfile* for instructions.
 
-# CI/CD via Github Actions
+# II. CI/CD via Github Actions
 
 Simply use the Docker commands inside your pipeline. See *.github/workflows* in
 the root of this repository for a simple example.
 
-# Advanced Topics
+# III. Advanced Topics
 
-## Docker with X-Forwarding
+## III.1 Docker with X-Forwarding
 
-### Linux X11
-
-- Install docker
-- Disable X11 authorization `xhost +`
-- Run container `docker run -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw container_name`
-
-### macOS
+### III.1.1 macOS
 
 - Install docker `brew install --cask docker`
 - Install and configure the X11 Server XQuartz
@@ -72,26 +65,32 @@ the root of this repository for a simple example.
 - Run container `docker run -e DISPLAY=docker.for.mac.host.internal:0
   container_name`
 
-### WSLg
+### III.1.2 Linux X11
+
+- Install docker
+- Disable X11 authorization `xhost +`
+- Run container `docker run -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw container_name`
+
+### III.1.3 WSLg
 
 - Install docker for Windows and its WSL integration
 - Run container `docker run -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw
   container_name`
 
-### WSL / WSL2
+### III.1.4 WSL / WSL2
 
 TODO
 
-## Linux Wayland
+### III.1.5 Linux Wayland
 
 TODO
 
-### Windows Native
+### III.1.6 Windows Native
 
 TODO
 
 
-## Debugging wdi5 Tests Inside a Docker Container
+## III.2 Debugging wdi5 Tests Inside a Docker Container
 
 We use the envvar *NODE_OPTIONS* to propagate startup options to node
 processes. This allows us to set startup options for any `node ...` command
@@ -99,6 +98,6 @@ down the chain of executed commands where it's impossible to do so manually, as
 it is in our case, since we're not calling `node ...` directly, but are using
 the `wdio` cli instead.
 
-- sudo docker run -e NODE_OPTIONS=--inspect-brk=0.0.0.0:9229 -p 9229:9229 -v "$(realpath webapp)":/app/webapp wdi5-ci-docker
-    - TODO: TIMOOO HALP
+TODO: Debugging does not work.
 
+- sudo docker run -e NODE_OPTIONS=--inspect-brk=0.0.0.0:9229 -p 9229:9229 -v "$(realpath webapp)":/app/webapp wdi5-ci-docker
