@@ -1,8 +1,15 @@
 # UI5con 2022: wdi5 workshop
 
+<https://github.com/ui5-community/wdi5-workshop>
+
 focus: DevX, CI, on-boarding
 
-<https://github.com/ui5-community/wdi5-workshop>
+1. DevX w/ `wdi5`
+2. Breakout Sessions
+    - js-app (@The_dominiK) -> page objects, test structuring
+    - ts-app (@vobu) -> one abstraction layer more
+    - fe-app (@scoen) -> FE OData v4 test library
+3. walk through `wdi5` codebase
 
 ---
 
@@ -20,30 +27,41 @@ focus: DevX, CI, on-boarding
 
 ## DevX
 
-### dev time - "out of the way", yet "safety net"
-
 - install & config `wdi5`
-  - `npm init wdi5` || `npx wdio config`
+  - `npm init wdi5`
+  - `npx wdio config`
   - docker image
-  - ui5 tooling, mocha, spec reporter
 
-- a first test
-  - OPA5-compatible "matcher"
-  - test recorder `wdi5` dialect
-  - UI5 API for controls
-  - fluent async api
-  - $shorthand shotcuts `.getItems(true)`
-- "your friendly neighborhood UI5 e2e test tool"
-  - code completion
-  - headless/`--headless`
-  - `--watch`
-  - `.skip` && `.only`
-  - debug
-    - VS Code debug
-    - `browser.debug()`
-    - `--debug` -> auto dev tools
-  - wdio REPL
-  - `browser.screenshot()`
+&rarr; ui5 tooling, mocha, spec reporter
+
+---
+
+## DevX
+
+### a first test
+
+- OPA5-compatible "matcher"
+- test recorder `wdi5` dialect
+- UI5 API for controls
+- fluent async api
+<!-- - $shorthand shotcuts `.getItems(true)` -->
+
+---
+
+## DevX
+
+### "your friendly neighborhood UI5 e2e test tool"
+
+- code completion
+- headless/`--headless`
+- `--watch`
+- `.skip` && `.only`
+- debug
+  - `await browser.debug()`
+  - VS Code debug
+  - `--debug` -> auto dev tools
+- `await browser.screenshot()`
+<!-- - wdio REPL -->
 
 ---
 
@@ -52,19 +70,15 @@ focus: DevX, CI, on-boarding
 ### dev time - breakout topics
 
 - js-app (@The_dominiK) -> page objects, test structuring
-- ts-app (@vobu) -> one abstraction level more
+- ts-app (@vobu) -> one abstraction layer more
 - fe-app (@scoen) -> FE OData v4 test library
 
 ---
 
 ## CI
 
-- identical code local + in pipeline
-- docker image in pipeline
-  - gh
-  - (gitlab)
-  - (bitbucket)
-  - jenkins
+- use the docker image locally + in pipeline
+- hook up to Browerstack
 
 ---
 
