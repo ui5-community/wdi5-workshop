@@ -2,20 +2,22 @@
 
 ## I.1 Easy Peasy wdi5 Docker Image:
 
-- TODO: Fix Docker Image
 - TODO: Check whether we can package.json aswell
 
-The wdi5 Docker image uses the most up-to-date Google Chrome.
+wdi5 Docker images can be found
+[here](https://github.com/ui5-community/wdi5/pkgs/container/wdi5). These image
+uses the most up-to-date Google Chrome.
 
 ```
 # download and build the docker image
-docker pull docker pull ghcr.io/js-soft/wdi5:0.9.9-node17
+docker pull docker pull ghcr.io/ui5-community/wdi5:0.9.9-node17
 
 # map your files into /app and run the container
-docker run -v "$(realpath ui5.yaml)":/app/ui5.yaml \
+docker run \
+    -v "$(realpath ui5.yaml)":/app/ui5.yaml \
     -v "$(realpath wdio.conf.js)":/app/wdio.conf.js \
     -v "$(realpath webapp)":/app/webapp \
-    ghcr.io/js-soft/wdi5:0.9.9-node17
+    ghcr.io/ui5-community/wdi5:0.9.9-node17
 ```
 
 ## I.2 Using a Custom Dockerfile
@@ -52,6 +54,14 @@ the root of this repository for a simple example.
 
 ## III.1 Docker with X-Forwarding
 
+If you would like to view your browser (or any graphical application, for that
+matter) running inside the docker container, you need to set up certain things.
+This setup is not specific to wdi5 or browsers and is, unfortunately, platform
+specific.
+
+The following paragraphs provide the basic set up required to display graphical
+applications run inside docker on the host machine.
+
 ### III.1.1 macOS
 
 - Install docker `brew install --cask docker`
@@ -77,6 +87,8 @@ the root of this repository for a simple example.
 - Run container `docker run -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw
   container_name`
 
+TODO: Check whether this works
+
 ### III.1.4 WSL / WSL2
 
 TODO
@@ -98,6 +110,16 @@ down the chain of executed commands where it's impossible to do so manually, as
 it is in our case, since we're not calling `node ...` directly, but are using
 the `wdio` cli instead.
 
-TODO: Debugging does not work.
+```
+# build the container if necessary
+docker build -t wdi5-ci-docker .
 
-- sudo docker run -e NODE_OPTIONS=--inspect-brk=0.0.0.0:9229 -p 9229:9229 -v "$(realpath webapp)":/app/webapp wdi5-ci-docker
+# run the container, passing the correct debugging options and forwarding the port
+docker run -e NODE_OPTIONS=--inspect-brk=0.0.0.0:9229 -p 9229:9229 wdi5-ci-docker
+```
+
+BUG: Unfortunately, debugging a containerized wdio node process does not work
+     in vscode. Attaching to the node process succeeds, but continuing the
+     process will crash due to the following error:
+
+     Error: Cannot find module '<basepath to you vscode installation>/ms-vscode.js-debug/src/bootloader.bundle.js
