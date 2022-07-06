@@ -21,6 +21,7 @@ RUN wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/
 #       https://github.com/mysticatea/npm-run-all/issues/237
 RUN apt install -yq procps
 
+# Copy 
 WORKDIR /app
 COPY webapp/ webapp/
 COPY package.json package.json
