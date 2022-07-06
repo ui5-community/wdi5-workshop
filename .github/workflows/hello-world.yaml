@@ -1,0 +1,10 @@
+name: Test
+on:
+  push:
+jobs:
+  build-and-run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build -f ./ci-docker/Dockerfile -t wdi5-ci-docker ./ci-docker
+      - run: docker run wdi5-ci-docker
