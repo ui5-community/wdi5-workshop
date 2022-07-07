@@ -1,5 +1,11 @@
 # I. Working with Docker
 
+Why?
+
+- Reproducible (==fixed) environment
+- Test multiple software versions concurrently (Chrome v10{2,3} and Firefox)
+- Stuck on a corporate laptop as a non-admin user
+
 ## I.1 Easy Peasy wdi5 Docker Image:
 
 wdi5 Docker images can be found
@@ -59,6 +65,8 @@ specific.
 
 The following paragraphs provide the basic set up required to display graphical
 applications run inside docker on the host machine.
+
+Idea: Parameterize *--headless* via a environment variable. See *wdio.conf.js*.
 
 ### III.1.1 macOS
 
