@@ -1,8 +1,9 @@
 const Main = require("./pageObjects/Main")
 const marky = require("marky")
 const { wdi5 } = require("wdio-ui5-service")
-
 const selectors = require("./selectors/main")
+
+// No page objects
 
 describe("ui5 basic", () => {
     before(async () => {
@@ -14,7 +15,7 @@ describe("ui5 basic", () => {
         expect(title).toEqual("Sample UI5 Application")
     })
 
-    it("should use a control selector with dots and colons (wdi5)", async () => {
+    it.skip("should use a control selector with dots and colons (wdi5)", async () => {
         const selector = {
             selector: {
                 id: "Title::NoAction.h1",
@@ -27,7 +28,7 @@ describe("ui5 basic", () => {
         expect(titleWUi5).toEqual("UI5 demo")
     })
 
-    it("check for invalid control selector", async () => {
+    it.skip("check for invalid control selector", async () => {
         const selector1 = {
             selector_: {
                 test: "some.test.string"
@@ -45,7 +46,7 @@ describe("ui5 basic", () => {
         expect(invalidControl2).toContain("ERROR")
     })
 
-    it("check getControl error message", async () => {
+    it.skip("check getControl error message", async () => {
         const selector = {
             selector: {
                 id: "some.test.string"

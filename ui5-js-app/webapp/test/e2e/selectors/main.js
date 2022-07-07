@@ -12,7 +12,9 @@ module.exports = {
             }
         }
     },
+
     titleSelector: { selector: { id: "container-Sample---Main--Title::NoAction.h1" } },
+
     checkboxSelector: {
         wdio_ui5_key: "cbSelector1",
         selector: {

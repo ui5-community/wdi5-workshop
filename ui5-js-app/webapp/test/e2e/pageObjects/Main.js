@@ -2,11 +2,14 @@ const Page = require("./Page")
 const selectors = require("../selectors/main")
 
 class Main extends Page {
+
+    _viewName = "test.Sample.view.Main"
+
+    // ---------- API Style -----------
+
     async open() {
         await super.open(`#/Main`)
     }
-
-    _viewName = "test.Sample.view.Main"
 
     async getCheckbox() {
         const cbSelector1 = {
@@ -15,14 +18,21 @@ class Main extends Page {
                 id: "idCheckbox",
                 viewName: this._viewName,
                 controlType: "sap.m.CheckBox"
-            }
+            },
+            forceSelect: true
         }
 
         return await browser.asControl(cbSelector1)
     }
 
-    // BDD
+    // ----------- BDD Style -----------
+
+    async iOpenTheMainPage() {
+        await super.open(`#/Main`)
+    }
+
     async iSelectTheCheckbox(sId) {
+
         const oCheckbox = await browser.asControl({
             wdio_ui5_key: "cbSelector1",
             selector: {
@@ -35,9 +45,19 @@ class Main extends Page {
     }
 
     async iCheckTheCheckbox(sId, bBool) {
-        selectors.checkboxSelector.selector.sId = sId
 
-        const oCheckbox = await browser.asControl(selectors.checkboxSelector);
+        const oCheckbox = await browser.asControl({
+            wdio_ui5_key: "cbSelector1",
+            selector: {
+                controlType: "sap.m.CheckBox",
+                viewName: this._viewName,
+                id: sId
+            },
+        });
+
+        // selectors.checkboxSelector.selector.sId = sId
+        // const oCheckbox = await browser.asControl(selectors.checkboxSelector);
+
         expect(await oCheckbox.getSelected()).toEqual(bBool);
     }
 }
