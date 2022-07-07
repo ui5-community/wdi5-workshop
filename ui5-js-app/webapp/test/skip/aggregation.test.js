@@ -1,6 +1,7 @@
 const { wdi5 } = require("wdio-ui5-service")
 
 const Other = require("./pageObjects/Other")
+const otherSelectors = require("./selectors/other")
 
 describe("ui5 aggregation retrieval", () => {
     before(async () => {
@@ -14,14 +15,7 @@ describe("ui5 aggregation retrieval", () => {
     it("select controls of a sap.m.Page's content aggregation", async () => {
         // goal: assert that .getContent() and .getAggregation("items") work the same
         // including access via the fluent async api
-        const pageSelector = {
-            selector: {
-                id: "OtherPage",
-                viewName: Other._viewName,
-                interaction: "root"
-            }
-        }
-        const page = await browser.asControl(pageSelector)
+        const page = await Other.getPage()
 
         // shorthand getContent()
         const content = await page.getContent()
@@ -45,9 +39,9 @@ describe("ui5 aggregation retrieval", () => {
         expect(vboxIdViaAggregationItem).toContain("VBoxx")
 
         // test shorthand with fluent async api
-        const listIdViaFluentApi = await browser.asControl(pageSelector).getContent(0).getId()
+        const listIdViaFluentApi = await browser.asControl(otherSelectors.pageSelector).getContent(0).getId()
         expect(listIdViaFluentApi).toContain("PeopleList")
-        const vboxItemsViaFluentApi = await browser.asControl(pageSelector).getContent(1).getItems()
+        const vboxItemsViaFluentApi = await browser.asControl(otherSelectors.pageSelector).getContent(1).getItems()
         expect(vboxItemsViaFluentApi.length).toBe(3)
     })
 

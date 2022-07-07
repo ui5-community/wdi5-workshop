@@ -1,4 +1,5 @@
 const Page = require("./Page")
+const selectors = require("../selectors/other")
 
 class Other extends Page {
     allNames = [
@@ -19,16 +20,8 @@ class Other extends Page {
     }
 
     async getList(force = false) {
-        const listSelector = {
-            wdio_ui5_key: "PeopleList",
-            selector: {
-                id: "PeopleList",
-                viewName: this._viewName
-            },
-            forceSelect: force //> this will populate down to $ui5Control.getAggregation and $ui5Control.getProperty as well
-        }
-
-        return await browser.asControl(listSelector)
+        selectors.listSelector.forceSelect = force
+        return await browser.asControl(selectors.listSelector)
     }
 
     async getListItems(force = false) {
@@ -43,6 +36,36 @@ class Other extends Page {
                 viewName: this._viewName
             }
         })
+    }
+
+    async getPage() {
+        const pageSelector = {
+            selector: {
+                id: "OtherPage",
+                viewName: this._viewName,
+                interaction: "root"
+            }
+        }
+        return await browser.asControl(pageSelector)
+    }
+
+    // BDD
+    async iShouldSeeItemsInTheList(iCount) {
+        selectors.listSelector.forceSelect = true
+        const oList = await browser.asControl(selectors.listSelector);
+        const iListAggregations = await oList.getAggregation("items")
+        // contains expect
+        expect(iListAggregations.length).toEqual(iCount);
+    }
+
+    async iAddAnItem() {
+        const addButton = await browser.asControl({
+            selector: {
+                id: "idAddLineItemButton",
+                viewName: this._viewName
+            }
+        })
+        return await addButton.press()
     }
 }
 

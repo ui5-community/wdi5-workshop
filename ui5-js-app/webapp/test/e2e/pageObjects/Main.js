@@ -1,4 +1,5 @@
 const Page = require("./Page")
+const selectors = require("../selectors/main")
 
 class Main extends Page {
     async open() {
@@ -18,6 +19,26 @@ class Main extends Page {
         }
 
         return await browser.asControl(cbSelector1)
+    }
+
+    // BDD
+    async iSelectTheCheckbox(sId) {
+        const oCheckbox = await browser.asControl({
+            wdio_ui5_key: "cbSelector1",
+            selector: {
+                controlType: "sap.m.CheckBox",
+                viewName: this._viewName,
+                id: sId
+            },
+        });
+        return await oCheckbox.press();
+    }
+
+    async iCheckTheCheckbox(sId, bBool) {
+        selectors.checkboxSelector.selector.sId = sId
+
+        const oCheckbox = await browser.asControl(selectors.checkboxSelector);
+        expect(await oCheckbox.getSelected()).toEqual(bBool);
     }
 }
 
