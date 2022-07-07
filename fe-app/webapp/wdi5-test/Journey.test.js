@@ -34,25 +34,4 @@ describe("FE basics", () => {
             Then.onTheDetailPage.onHeader().iCheckEdit().and.iCheckTitle("Password Reset")
         })
     })
-
-    it("should change title in the object page and save it", async () => {
-        await FioriElementsFacade.execute((Given, When, Then) => {
-            When.onTheDetailPage.onHeader().iExecuteEdit()
-            Then.onTheDetailPage.iSeeObjectPageInEditMode()
-            When.onTheDetailPage
-                .onForm({ section: "IncidentOverviewFacet" })
-                .iChangeField({ property: "title" }, "Password obliteration")
-            Then.onTheDetailPage.onFooter().iCheckDraftStateSaved()
-            When.onTheDetailPage.onFooter().iExecuteSave()
-        })
-    })
-
-    it("should see the list report again and the changed field", async () => {
-        await FioriElementsFacade.execute((Given, When, Then) => {
-            When.onTheShell.iNavigateBack()
-            Then.onTheMainPage.iSeeThisPage()
-            Given.onTheMainPage.onFilterBar().iExecuteSearch()
-            Then.onTheMainPage.onTable().iCheckRows({ identifier: "inc_0002", title: "Password obliteration" })
-        })
-    })
 })
