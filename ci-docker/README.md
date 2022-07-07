@@ -2,15 +2,13 @@
 
 ## I.1 Easy Peasy wdi5 Docker Image:
 
-- TODO: Check whether we can package.json aswell
-
 wdi5 Docker images can be found
 [here](https://github.com/ui5-community/wdi5/pkgs/container/wdi5). These image
 uses the most up-to-date Google Chrome.
 
 ```
 # download and build the docker image
-docker pull docker pull ghcr.io/ui5-community/wdi5:0.9.9-node17
+docker pull ghcr.io/ui5-community/wdi5:0.9.9-node17
 
 # map your files into /app and run the container
 docker run \
