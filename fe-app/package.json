@@ -11,9 +11,10 @@
     "scripts": {
         "deploy": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf",
         "test": "karma start --singleRun",
-        "_wdi5": "wait-on tcp:8088 && wdio run wdio.conf.js",
-        "wdi5": "run-p -r serve _wdi5",
-        "serve": "ui5 serve --port 8088"
+        "_wdi5": "wait-on tcp:8088 && npm run wdi5",
+        "wdi5": "wdio run wdio.conf.js",
+        "serve": "ui5 serve --port 8088",
+        "servewdi5": "run-p -r serve _wdi5"
     },
     "devDependencies": {
         "@sap/ux-specification": "latest",
