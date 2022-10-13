@@ -21,8 +21,3 @@ server:
         strictSSL: false
     - name: ui5-middleware-livereload
       afterMiddleware: compression
-      configuration:
-        debug: true
-        extraExts: "xml,json,properties"
-        port: 35729
-        watchPath: "webapp"
