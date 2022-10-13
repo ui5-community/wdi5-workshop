@@ -4,7 +4,7 @@ metadata:
 type: application
 framework:
   name: OpenUI5
-  version: "1.106.0"
+  version: "1.107.1"
   libraries:
     - name: sap.m
     - name: sap.ui.core
@@ -19,4 +19,10 @@ server:
       configuration:
         baseUri: "https://services.odata.org/V2"
         strictSSL: false
+    - name: ui5-middleware-livereload
+      afterMiddleware: compression
+      configuration:
         debug: true
+        extraExts: "xml,json,properties"
+        port: 35729
+        watchPath: "webapp"
