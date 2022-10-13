@@ -29,13 +29,6 @@
 
 				<webc:Input id="mainUserInput"
 					value="{/Customers('TRAIH')/ContactName}" />
-
-				<MultiInput id="MultiInput">
-					<tokens>
-						<Token text="Token1"
-							id="Token1" />
-					</tokens>
-				</MultiInput>
 			</VBox>
 		</content>
 	</Page>
