@@ -2,12 +2,13 @@
 webapp
 dist
 
-# Logs
+# Logs + screenshots
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+__screenshots__/**/*.png
 
 # Dependency directories
 node_modules/
