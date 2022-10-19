@@ -14,7 +14,8 @@
     "build:mtar": "mv dist approuter/webapp && mbt build",
     "clean": "rimraf dist webapp approuter/webapp",
     "build:cf": "npm-run-all --sequential clean build:ts build:ui5 build:mtar",
-    "wdi5": "wdio run wdio.conf.ts"
+    "wdi5": "wdio run wdio.conf-local.ts",
+    "wdi5:browserstack": "wdio run wdio.conf-browserstack.ts"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
