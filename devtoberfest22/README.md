@@ -12,7 +12,11 @@ wdi5 tests for it in TypeScript flavor
 
 ## install + run
 
+Put your browserstack credentials (username + access key) into `ui5-ts-app/.env`.  
+See `ui5-ts-app/.env.example` for an example.
+
 ```bash
+$> cd ui5-ts-app
 $> npm install
 
 # in Terminal 1
